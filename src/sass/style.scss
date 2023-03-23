@@ -1,0 +1,527 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: 'Locator';
+  src: local('Locator'), url('../fonts/Locator.otf') format('truetype');
+}
+@font-face {
+  font-family: 'Locator-medium';
+  src: local('Locator-medium'), url('../fonts/Locator-medium.otf') format('truetype');
+}
+
+$regular: 'Locator', sans-serif;
+$medium:'Locator-medium', sans-serif;
+$narrow: 'Montserrat', sans-serif;
+$blue: #009ee3;
+
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@mixin text {
+  margin: 0;
+  padding: 0;
+  line-height: inherit;
+  color: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+@mixin img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+#es-laroche.es-laroche {
+  font-family: $regular;
+  font-weight: 200;
+  font-size: 16px;
+  line-height: 1.2;
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 0;
+  overflow: hidden;
+  color: #000;
+  background: #fff;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: $regular;
+    color: #000;
+  }
+
+  .es-kv {
+    &__logo {
+      padding-left: 5%;
+      
+      & img {
+        max-width: 200px;
+      }
+    }
+    &__wrapper {
+      min-height: 290px;
+      background: url('../images/bg-kv.png') no-repeat;
+      background-size: cover;
+      background-position: right ;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    &__left {
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 22px;
+      font-weight: 500;
+      font-family: $medium;
+      opacity: 0;
+      animation: slideright 0.8s ease forwards;
+      animation-delay: 0.9s;
+    }
+    &__right {
+      opacity: 0;
+      animation: slideleft 0.8s ease forwards;
+      animation-delay: 0.9s;
+      & img {
+        padding-right: 40px;
+        max-width: 270px;
+      }
+    }
+  }
+  .es-desc {
+    margin: 32px auto;
+    text-align: center;
+    &__title {
+      @include text;
+      font-size: 28px;
+      text-transform: uppercase;
+      font-weight: 100;
+      & span {
+        font-family: $medium;
+        font-weight: 500;
+      }
+    }
+    &__wrapper {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    &__single {
+      width: 246px;
+      margin: 20px 0;
+      transition: all 0.3s;
+      & p {
+        font-size: 13px;
+      }
+      &:hover {
+          transform: translateY(15px);
+      }
+    }
+    &__item {
+      text-transform: uppercase;
+      font-family: $medium;
+    }
+  }
+  .es-effect{
+    min-height: 314px;
+    background: url('../images/bg-effect.png') no-repeat;
+    background-size: cover;
+    background-position: right;
+    background-color: #f7f4e6;
+    &__container{
+      margin-left: auto;
+      margin-right: 20px;
+      padding: 25px 15px;
+      max-width: 510px;
+      text-align: center;
+    }
+    &__title {
+      @include text;
+      font-size: 28px;
+      text-transform: uppercase;
+      font-weight: 100;
+      & span {
+        font-family: $medium;
+        font-weight: 500;
+      }
+    }
+    &__subtitle {
+      @include text;
+      font-size: 10px;
+    }
+    &__wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    &__single {
+      margin: 15px auto;
+      max-width: 150px;
+      font-size: 13px;
+    }
+    &__single-wide {
+      max-width: 220px;
+    }
+    &__item {
+      margin: 0;
+      text-transform: uppercase;
+      font-family: $medium;
+      font-weight: 500;
+    }
+    &__percent {
+      margin: 0;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: $blue;
+      & span {
+        font-weight: 500;
+        font-family: $medium;
+        font-size: 40px;
+        & sup {
+          font-family: $regular;
+          font-size: 55%;
+        }
+      }
+    }
+  }
+  .es-ingr {
+    margin: 42px 0;
+    text-align: center;
+    &__title {
+      @include text;
+      font-size: 28px;
+      text-transform: uppercase;
+      font-weight: 100;
+      & span {
+        font-family: $medium;
+        font-weight: 500;
+      }
+    }
+    &__wrapper {
+      margin: 20px auto 0;
+      width: 95%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px 2px;
+    }
+    &__single {
+      margin: 0 auto;
+      overflow: hidden;
+      flex-basis: 33%;
+      &:hover {
+        .es-ingr__image {
+          transform: scale(1.1);
+        }
+      }
+    }
+    &__image {
+      @include img;
+      max-width: 135px;
+      margin: 10px auto;
+      transition: all 0.3s;
+    }
+    &__item {
+      max-width: 135px;
+      @include text;
+      margin: 0 auto;
+      font-size: 11px;
+      text-transform: none;
+      font-family: $regular;
+      font-weight: 100;
+      text-align: left;
+    }
+  }
+  .es-use {
+    margin: 32px auto;
+    &__wrapper {
+      min-height: 334px;
+      background: url('../images/bg-use.png') no-repeat;
+      background-size: cover;
+      background-position: right;
+    }
+    &__title {
+      @include text;
+      margin: 20px 10px;
+      font-size: 28px;
+      text-transform: uppercase;
+      font-weight: 100;
+      & span {
+        font-family: $medium;
+        font-weight: 500;
+      }
+    }
+    &__subtitle {
+      @include text;
+      font-size: 16px;
+      margin: 14px 10px;
+      font-weight: 100;
+      & span {
+        font-family: $medium;
+        font-weight: 500;
+      }
+    }
+  }
+  .es-cross {
+    margin: 20px auto;
+    text-align: center;
+    &__title {
+      @include text;
+      margin: 20px 10px;
+      font-size: 28px;
+      text-transform: uppercase;
+      font-weight: 100;
+      & span {
+        font-family: $medium;
+        font-weight: 500;
+      }
+    }
+    &__container {
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+    }
+    &__single {
+      max-width: 250px;
+      margin-bottom: 20px;
+      &:hover .es-cross__link::before {
+        transform: scaleX(1);
+      }
+      &:hover .es-cross__image {
+        transform: translateY(-8px);
+      }
+    }
+    &__number {
+      @include text;
+      color:#009ee3;
+      font-family: $medium;
+      font-weight: 500;
+      font-size: 160px;
+      margin: 0 10px;
+    }
+    &__image {
+      transition: transform 0.3s;
+      margin-bottom: 24px;
+      max-height: 350px;
+      img {
+        max-width: none;
+      }
+    }
+    &__link {
+      @include text;
+      position: relative;
+      display: inline-block;
+      padding: 12px 20px;
+      color: #fff;
+      font-size: 16px;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+      background: $blue;
+      transition: color 0.3s ease-in-out;
+      z-index: 1;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: -1;
+        background-color: #000;
+        transition: transform 0.3s ease-in-out;
+        transform: scaleX(0);
+        transform-origin: left;
+      }
+    }
+  }
+  .es-obligations {
+    width: 95%;
+    margin: 40px auto;
+    text-align: center;
+    &__title {
+      @include text;
+      margin: 20px 10px;
+      font-size: 28px;
+      text-transform: uppercase;
+      font-weight: 100;
+      & span {
+        font-family: $medium;
+        font-weight: 500;
+      }
+    }
+    &__wrapper {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 10px;
+    }
+    &__single {
+      width: 320px;
+      overflow: hidden;
+      position: relative;
+      &:hover {
+        .es-obligations__image {
+          transform: scale(1.2);
+        }
+      }
+    }
+    &__label {
+      @include text;
+      position: absolute;
+      bottom: 0;
+      color: #fff;
+      width: 100%;
+      text-align: left;
+      padding: 4px 10px;
+      text-transform: uppercase;
+      font-family: $medium;
+      font-weight: 500;
+      font-size: 13px;
+    }
+    &__image {
+      @include img;
+      max-width: 100%;
+      transition: all 0.3s;
+    }
+  }
+  .es-footer {
+    margin: 32px auto;
+    & p {
+      @include text;
+      font-size: 8px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .es-ingr {
+    &__wrapper {
+      flex-wrap: nowrap  !important;
+    }
+    &__single {
+      flex-basis: 20% !important;
+      width: 135px  !important;
+    }
+  }
+  .es-cross {
+    &__container {
+      width: 768px;
+      height: 998px;
+      background: url('../images/bg-cross.png') no-repeat;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    &__image {
+      display: none;
+    }
+    &__number {
+      margin: 0 0 !important;
+      max-height: 160px !important;
+    }
+    &__title {
+      margin: 0 0 10px 0 !important;
+      font-size: 20px  !important;
+    }
+    &__desc {
+      padding: 0;
+    }
+    &__single {
+      max-width: 200px !important;
+      position: absolute;
+      text-align: left;
+      &--1 {
+        left: 20px;
+        top: 20px;
+      }
+      &--2 {
+        right: 20px;
+        top: 300px;
+      }
+      &--3 {
+        left: 20px;
+        top: 520px;
+      }
+    }
+  }
+
+}
+
+@media screen and (min-width: 655px) {
+  .es-kv {
+    &__container {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+    }
+    &__wrapper {
+      width: 70%;
+      order: 2;
+    }
+    &__left {
+      order: 1;
+      width: 40%;
+      & p {
+        text-align: right;
+      }
+    }
+  }
+  .es-use {
+    margin: 32px auto;
+    &__container {
+      position: relative;
+      min-height: 334px;
+    }
+    &__wrapper {
+      width: 100%;
+      position: absolute;
+      z-index: 1;
+    }
+    &__left {
+      position: absolute;
+      top: 5%;
+      left: 5%;
+      z-index: 5;
+    }
+  }
+}
+
+@keyframes slideright {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideleft {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
