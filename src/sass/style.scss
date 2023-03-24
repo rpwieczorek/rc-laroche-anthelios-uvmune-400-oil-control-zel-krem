@@ -125,6 +125,14 @@ body {
         font-family: 500;
       }
     }
+    &__disclaimer {
+      @include text;
+      margin: 20px 0 20px auto;
+      color: #000;
+      font-family: $regular;
+      font-family: 100;
+      font-size: 5px;
+    }
     &__packshot {
       text-align: center;
     }
@@ -500,6 +508,9 @@ body {
       color: #fff !important;
     }
     &__subtitle {
+      color: #fff !important;
+    }
+    &__disclaimer {
       color: #fff !important;
     }
   }
