@@ -12,8 +12,8 @@
 $regular: 'Locator', sans-serif;
 $medium:'Locator-medium', sans-serif;
 $narrow: 'Montserrat', sans-serif;
+$orange: #f08700;
 $blue: #009ee3;
-
 
 html,
 body {
@@ -65,40 +65,68 @@ body {
   }
 
   .es-kv {
+    position: relative;
     &__logo {
+      position: absolute;
       padding-left: 5%;
-      
+      top: 0;
       & img {
         max-width: 200px;
       }
     }
-    &__wrapper {
-      min-height: 290px;
-      background: url('../images/bg-kv.png') no-repeat;
-      background-size: cover;
-      background-position: right ;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
+    &__container {
+     padding: 10px;
     }
-    &__left {
-      text-align: center;
+    &__bg {
+      @include img;
+    }
+    &__text {
+      text-align: right;
+    }
+    &__titlebg {
+      @include text;
+      margin: 0 0 10px auto;
+      width: fit-content;
+      padding: 2px 6px 0;
+      background-color: $orange;
+      color: #fff;
       text-transform: uppercase;
-      font-size: 22px;
       font-weight: 500;
       font-family: $medium;
-      opacity: 0;
-      animation: slideright 0.8s ease forwards;
-      animation-delay: 0.9s;
-    }
-    &__right {
-      opacity: 0;
-      animation: slideleft 0.8s ease forwards;
-      animation-delay: 0.9s;
-      & img {
-        padding-right: 40px;
-        max-width: 270px;
+      font-size: 12px;
+      &--center {
+        margin: 0 auto 10px;
       }
+    }
+    &__title {
+      @include text;
+      margin: 0 0 20px auto;
+      text-transform: uppercase;
+      color: #000;
+      font-family: $regular;
+      font-family: 100;
+      font-size: 18px;
+      & span {
+        font-family: $medium;
+        font-family: 500;
+        font-size: 30px;
+      }
+    }
+    &__subtitle {
+      @include text;
+      margin: 0 0 0 auto;
+      text-transform: uppercase;
+      color: #000;
+      font-family: $regular;
+      font-family: 100;
+      font-size: 15px;
+      & span {
+        font-family: $medium;
+        font-family: 500;
+      }
+    }
+    &__packshot {
+      text-align: center;
     }
   }
   .es-desc {
@@ -121,7 +149,7 @@ body {
       justify-content: space-around;
     }
     &__single {
-      width: 246px;
+      width: 200px;
       margin: 20px 0;
       transition: all 0.3s;
       & p {
@@ -135,13 +163,19 @@ body {
       text-transform: uppercase;
       font-family: $medium;
     }
+    &__disclaimer{
+      @include text;
+      text-align: center;
+      font-size: 10px;
+
+    }
   }
   .es-effect{
+    margin-bottom: 20px;
     min-height: 314px;
     background: url('../images/bg-effect.png') no-repeat;
-    background-size: cover;
     background-position: right;
-    background-color: #f7f4e6;
+    background-color: #1b2341;
     &__container{
       margin-left: auto;
       margin-right: 20px;
@@ -151,6 +185,7 @@ body {
     }
     &__title {
       @include text;
+      color:#fff;
       font-size: 28px;
       text-transform: uppercase;
       font-weight: 100;
@@ -161,6 +196,7 @@ body {
     }
     &__subtitle {
       @include text;
+      color: #000;
       font-size: 10px;
     }
     &__wrapper {
@@ -170,7 +206,7 @@ body {
     }
     &__single {
       margin: 15px auto;
-      max-width: 150px;
+      width: 200px;
       font-size: 13px;
     }
     &__single-wide {
@@ -181,12 +217,13 @@ body {
       text-transform: uppercase;
       font-family: $medium;
       font-weight: 500;
+      color: #fff;
     }
     &__percent {
       margin: 0;
       text-transform: uppercase;
       font-size: 12px;
-      color: $blue;
+      color: $orange;
       & span {
         font-weight: 500;
         font-family: $medium;
@@ -222,18 +259,40 @@ body {
     &__single {
       margin: 0 auto;
       overflow: hidden;
-      flex-basis: 33%;
+      position: relative;
+      max-width: 226px;
       &:hover {
         .es-ingr__image {
           transform: scale(1.1);
         }
       }
     }
-    &__image {
+    &__img {
       @include img;
-      max-width: 135px;
       margin: 10px auto;
       transition: all 0.3s;
+    }
+    &__image {
+      position: relative;
+    }
+    &__label {
+      @include text;
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.66);
+      position: absolute;
+      width: 100%;
+      height: 142px;
+      top: 50%;
+      left: 50%;
+      font-size: 11px;
+      transform: translate(-50%, -50%);
+      font-family: $medium;
+      font-weight: 500;
+      text-align: left;
+      text-transform: uppercase;
+      & span {
+        font-size: 18px;
+      }
     }
     &__item {
       max-width: 135px;
@@ -260,19 +319,41 @@ body {
       font-size: 28px;
       text-transform: uppercase;
       font-weight: 100;
+      color: #000;
       & span {
         font-family: $medium;
         font-weight: 500;
       }
     }
+    
     &__subtitle {
       @include text;
-      font-size: 16px;
-      margin: 14px 10px;
+      color: #000;
+      font-size: 18px;
+      margin: 14px 0;
       font-weight: 100;
       & span {
         font-family: $medium;
         font-weight: 500;
+      }
+      & ol {
+        max-width: 100%;
+        list-style: none;
+        counter-reset: my-awesome-counter;
+        padding-left: 30px;
+      }
+      & ol li {
+        counter-increment: my-awesome-counter;
+        position: relative;
+        font-family: $regular;
+        padding-bottom: 30px;
+      }
+      & ol li::before {
+        content: counter(my-awesome-counter) ". ";
+        font-family: $medium;
+        font-weight: 500;
+        position: absolute;
+        left: -20px;
       }
     }
   }
@@ -296,7 +377,7 @@ body {
       flex-wrap: wrap;
     }
     &__single {
-      max-width: 250px;
+      max-width: 240px;
       margin-bottom: 20px;
       &:hover .es-cross__link::before {
         transform: scaleX(1);
@@ -307,7 +388,7 @@ body {
     }
     &__number {
       @include text;
-      color:#009ee3;
+      color:$orange;
       font-family: $medium;
       font-weight: 500;
       font-size: 160px;
@@ -331,7 +412,7 @@ body {
       text-align: center;
       text-decoration: none;
       transition: all 0.3s ease-in-out;
-      background: $blue;
+      background: $orange;
       transition: color 0.3s ease-in-out;
       z-index: 1;
       &::before {
@@ -408,21 +489,64 @@ body {
     }
   }
 }
-
-@media screen and (min-width: 768px) {
-  .es-ingr {
-    &__wrapper {
-      flex-wrap: nowrap  !important;
+@media screen and (min-width: 550px) {
+  .es-kv {
+    &__text {
+      position: absolute;
+      top: 25%;
+      left:20px;
     }
-    &__single {
-      flex-basis: 20% !important;
-      width: 135px  !important;
+    &__title {
+      color: #fff !important;
+    }
+    &__subtitle {
+      color: #fff !important;
     }
   }
+}
+@media screen and (min-width: 550px) {
+  .es-kv {
+    &__text {
+      top: 30%;
+    }
+  }
+}
+@media screen and (min-width: 655px) {
+  .es-use {
+    margin: 32px auto;
+    &__container {
+      position: relative;
+      min-height: 334px;
+    }
+    &__wrapper {
+      width: 100%;
+      position: absolute;
+      z-index: 1;
+    }
+    &__left {
+      position: absolute;
+      top: 5%;
+      left: 5%;
+      z-index: 5;
+    }
+    &__subtitle {
+      color: #fff !important;
+      width: 100%;
+      & ol {
+        max-width: 400px !important;
+      }
+    }
+    &__title {
+      color: #fff !important;
+    }
+  }
+}
+@media screen and (min-width: 728px) {
   .es-cross {
+    paddingn-bottom: 40px;
     &__container {
       width: 768px;
-      height: 998px;
+      height: 1000px;
       background: url('../images/bg-cross.png') no-repeat;
       background-size: cover;
       background-position: center;
@@ -448,56 +572,41 @@ body {
       text-align: left;
       &--1 {
         left: 20px;
-        top: 20px;
+        top: 0px;
       }
       &--2 {
         right: 20px;
-        top: 300px;
+        top: 260px;
       }
       &--3 {
         left: 20px;
-        top: 520px;
+        top: 580px;
       }
     }
   }
-
-}
-
-@media screen and (min-width: 655px) {
   .es-kv {
-    &__container {
-      display: flex;
-      flex-wrap: nowrap;
-      align-items: center;
+    &__text {
+      top: 300px;
+      right:250px;
     }
-    &__wrapper {
-      width: 70%;
-      order: 2;
-    }
-    &__left {
-      order: 1;
-      width: 40%;
-      & p {
-        text-align: right;
-      }
+    &__packshot {
+      position: absolute;
+      top: 120px;
+      right: 80px;
     }
   }
-  .es-use {
-    margin: 32px auto;
-    &__container {
-      position: relative;
-      min-height: 334px;
-    }
-    &__wrapper {
-      width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .es-kv {
+    &__text {
       position: absolute;
-      z-index: 1;
+      top: 300px;
+      right:250px;
     }
-    &__left {
+    &__packshot {
       position: absolute;
-      top: 5%;
-      left: 5%;
-      z-index: 5;
+      top: 150px;
+      right: 100px;
     }
   }
 }
