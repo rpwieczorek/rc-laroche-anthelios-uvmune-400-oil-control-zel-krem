@@ -181,12 +181,10 @@ body {
   .es-effect{
     margin-bottom: 20px;
     min-height: 314px;
-    background: url('../images/bg-effect.png') no-repeat;
-    background-position: right;
     background-color: #1b2341;
     &__container{
       margin-left: auto;
-      margin-right: 20px;
+      margin-right: auto;
       padding: 25px 15px;
       max-width: 510px;
       text-align: center;
@@ -549,6 +547,23 @@ body {
     }
     &__title {
       color: #fff !important;
+    }
+  }
+}
+@media screen and (min-width: 660px){
+  .es-effect{
+    margin-bottom: 20px;
+    min-height: 314px;
+    background: url('../images/bg-effect.png') no-repeat;
+    background-position: left;
+    background-size: contain;
+    background-color: #1b2341;
+    &__container{
+      margin-left: auto;
+      margin-right: 20px !important;
+      padding: 25px 15px;
+      max-width: 510px;
+      text-align: center;
     }
   }
 }
